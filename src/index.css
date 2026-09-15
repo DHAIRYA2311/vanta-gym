@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased overflow-x-hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  ::selection {
+    @apply bg-accent/30 text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .clip-path-reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .clip-path-hidden {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+}
