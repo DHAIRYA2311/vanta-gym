@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../../data/content';
 import { cn } from '../../utils/cn';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: () => void;

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
 import { Button } from './Button';
-import { cn } from '../../utils/cn';
 
 interface ContactModalProps {
   isOpen: boolean;
