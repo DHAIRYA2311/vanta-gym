@@ -10,10 +10,11 @@ import { Coaches } from './components/sections/Coaches';
 import { Results } from './components/sections/Results';
 import { Membership } from './components/sections/Membership';
 import { CTA } from './components/sections/CTA';
+import { Credits } from './components/ui/Credits';
 
 function App() {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen relative">
       <Navbar />
       
       <main>
@@ -30,6 +31,7 @@ function App() {
       </main>
 
       <Footer />
+      <Credits />
     </div>
   );
 }
