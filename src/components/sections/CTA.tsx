@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { content } from '../../data/content';
 import { Button } from '../ui/Button';
 
-export const CTA = () => {
+interface CTAProps {
+  onOpenContact: () => void;
+}
+
+export const CTA = ({ onOpenContact }: CTAProps) => {
   return (
     <section className="relative py-32 md:py-48 overflow-hidden bg-background">
       {/* Background Image */}
@@ -42,7 +46,7 @@ export const CTA = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Button variant="primary" className="px-10 py-5">
+          <Button variant="primary" className="px-10 py-5" onClick={onOpenContact}>
             {content.cta.button}
           </Button>
         </motion.div>

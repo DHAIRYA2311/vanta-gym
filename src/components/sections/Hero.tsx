@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { content } from '../../data/content';
 import { Button } from '../ui/Button';
 
-export const Hero = () => {
+interface HeroProps {
+  onOpenContact: () => void;
+}
+
+export const Hero = ({ onOpenContact }: HeroProps) => {
   return (
     <section className="relative w-full h-[100vh] min-h-[600px] flex items-center pt-24 overflow-hidden">
       {/* Background Image with Parallax effect */}
@@ -78,7 +82,7 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6">
-            <Button variant="primary">
+            <Button variant="primary" onClick={onOpenContact}>
               {content.hero.primaryCta}
             </Button>
             <Button variant="outline">

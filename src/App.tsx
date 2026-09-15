@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
@@ -11,14 +12,20 @@ import { Results } from './components/sections/Results';
 import { Membership } from './components/sections/Membership';
 import { CTA } from './components/sections/CTA';
 import { Credits } from './components/ui/Credits';
+import { ContactModal } from './components/ui/ContactModal';
 
 function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
+  const handleOpenContact = () => setIsContactOpen(true);
+  const handleCloseContact = () => setIsContactOpen(false);
+
   return (
     <div className="bg-background min-h-screen relative">
-      <Navbar />
+      <Navbar onOpenContact={handleOpenContact} />
       
       <main>
-        <Hero />
+        <Hero onOpenContact={handleOpenContact} />
         <Intro />
         <Programs />
         <Experience />
@@ -26,12 +33,13 @@ function App() {
         <Club />
         <Coaches />
         <Results />
-        <Membership />
-        <CTA />
+        <Membership onOpenContact={handleOpenContact} />
+        <CTA onOpenContact={handleOpenContact} />
       </main>
 
       <Footer />
       <Credits />
+      <ContactModal isOpen={isContactOpen} onClose={handleCloseContact} />
     </div>
   );
 }

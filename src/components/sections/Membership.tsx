@@ -4,7 +4,11 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
 import { cn } from '../../utils/cn';
 
-export const Membership = () => {
+interface MembershipProps {
+  onOpenContact: () => void;
+}
+
+export const Membership = ({ onOpenContact }: MembershipProps) => {
   return (
     <section className="py-24" id="membership">
       <div className="container mx-auto px-6 md:px-12">
@@ -54,7 +58,7 @@ export const Membership = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 flex justify-center"
         >
-          <Button variant="primary">
+          <Button variant="primary" onClick={onOpenContact}>
             {content.membership.cta}
           </Button>
         </motion.div>

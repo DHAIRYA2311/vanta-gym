@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../../data/content';
 import { cn } from '../../utils/cn';
-import { X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
-export const Navbar = () => {
+interface NavbarProps {
+  onOpenContact: () => void;
+}
+
+export const Navbar = ({ onOpenContact }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -45,10 +49,10 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden lg:block">
-            <a href="#contact" className="group flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] hover:text-accent transition-colors">
+            <button onClick={onOpenContact} className="group flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] hover:text-accent transition-colors">
               BOOK A TOUR 
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,16 +102,18 @@ export const Navbar = () => {
                 </motion.a>
               ))}
               
-              <motion.a
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + links.length * 0.1, duration: 0.5 }}
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-8 flex items-center gap-2 text-sm font-bold tracking-[0.15em] text-accent"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenContact();
+                }}
+                className="mt-8 flex items-center gap-2 text-sm font-bold tracking-[0.15em] text-accent text-left"
               >
                 BOOK A TOUR <ArrowRight className="w-5 h-5" />
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
